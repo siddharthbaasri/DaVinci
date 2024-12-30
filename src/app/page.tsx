@@ -8,13 +8,11 @@ export default function Home() {
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="mx-auto text-lg text-center max-w-4xl">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              <span className="block mb-6">I am learning Tailwind Elements</span>
-              <span className="block text-3xl">and its awesome</span>
+              <span className="block mb-6">Da Vinci Institute of Arts, Science and Humanities</span>
             </h1>
-            <p className="mt-6 text-xl text-teal-50 max-w-3xl mb-6">
-              Tailwind Elements is a fantastic library, offering reusable UI components that save development time, ensure
-              design consistency, and boost productivity. Its seamless integration with Tailwind CSS enables effortless
-              customization.
+            <p className="mt-6 text-xl text-teal-50 max-w-4xl mb-6">
+              Tens of Millions of students worldwide lack access to adequate education. Da Vinci Institute aims 
+              to address this situation by offering affordable personalized education to students in need around the world.
             </p>
           </div>
         </div>
@@ -23,14 +21,31 @@ export default function Home() {
       <div className="container mx-auto mb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
-          <Card image = {'https://tecdn.b-cdn.net/img/new/textures/small/1.jpg'} heading = {"Are you ready?"} 
-            text = {"A great adventure is ahead of us! Get ready for a fascinating journey into the world of web design 🚀"}/>
+          <Card image = {"./students.jpg"} heading = {"Of The Students, By The Students, For The Students"} 
+            text = {`Da Vinci Institute's curricula are developed solely by tutors who
+            have a deep understanding of students' needs. The lack of
+            adherence to any common standard allows the lessons to be flexible
+            and personalized for each student, helping the students to reach a
+            level of understanding other institutions cannot provide with
+            their traditional teaching methods`}/>
 
-          <Card image = {'https://tecdn.b-cdn.net/img/new/textures/small/103.jpg'} heading = {"UI and UX"} 
-            text = {"We will explore the unknown lands of creating great interfaces and designing the perfect user experience"}/>
+          <Card image = {'./education.jpg'} heading = {"Education For All"} 
+            text = {`We firmly uphold the idea that education should be accessible to
+            all. Thus, our class fees are strictly minimized and we offer fee
+            waivers to students who cannot afford the classes. All revenue
+            apart from the maintenance fee is used to directly contribute to
+            our mission, either being donated to other educational charities,
+            or added to the funds for the scholarship that we offer to our
+            students.`}/>
 
-          <Card image = {'https://tecdn.b-cdn.net/img/new/textures/small/56.jpg'} heading = {"Future of web dev"} 
-            text = {"You know the saying that the future is today? There is no need to delay, lets start our journey"}/>
+          <Card image = {'./library.jpg'} heading = {"Unlimited Learning"} 
+            text = { `Da Vinci Institute believes that all knowledge, regardless of
+              subject, is valuable. The Institute aspires to provide all
+              students with the support they need to develop and succeed as
+              learners in all subjects. To achieve this, Da Vinci Institute
+              provides courses in a wide variety of subjects for students in all
+              levels of proficiency, and places great importance in expanding
+              its curricula.`}/>
 
         </div>
       </div>
