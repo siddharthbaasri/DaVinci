@@ -6,29 +6,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import logo from "../../public/logo.png"
 import SignIn from '@/components/auth-buttons'
-import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
-import {signOut} from "next-auth/react"
+import { useState } from 'react'
+import {signOut, useSession} from "next-auth/react"
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
-    const router = useRouter();
+    const { data: session } = useSession();
 
-    useEffect(() => {
-        async function checkAuth() {
-            const res = await fetch("/api/auth/session");
-            const session = await res.json();
-            if (session) {
-              setLoggedIn(true);
-            }
-            else {
-              setLoggedIn(false);
-            }
-        }
-    
-        checkAuth();
-    }, [router]);
 
     const handleNav = () => {
         setIsOpen(!isOpen);
@@ -57,26 +41,32 @@ const Navbar = () => {
                 </div>
                 
                 <div className="hidden sm:flex">
-                    {!loggedIn ? 
+                    {session === null ? 
                     <div className="mr-5 flex items-center justify-center">
                         <SignIn/>
                     </div>
                     :
-                    <div className="items-center relative group transition-all px-2 py-3">
-                        <VscAccount className="text-black-500 text-4xl hover:text-green-200 transition duration-300"/>
-                        <div className="absolute right-2 top-15 w-auto hidden flex-col gap-1 rounded-l bg-white py-3 shadow-md transition-all group-hover:flex">
-                            <Link href="" className = "cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black"> 
-                                Profile
-                            </Link>
-                            <Link href="" onClick={(e) => {
-                                e.preventDefault();
-                                signOut();
-                            }} 
-                            className = "cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black"> 
-                                Logout
-                            </Link>
+                    <div className="flex items-center relative group transition-all px-2 py-3">
+                        <div className = "px-5">
+                            <p>Hello {session?.user?.name}</p>
                         </div>
-                    </div>}
+                        <div>
+                            <VscAccount className="text-black-500 text-4xl hover:text-green-200 transition duration-300"/>
+                            <div className="absolute right-2 top-15 w-auto hidden flex-col gap-1 rounded-l bg-white py-3 shadow-md transition-all group-hover:flex">
+                                <Link href="" className = "cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black"> 
+                                    Profile
+                                </Link>
+                                <Link href="" onClick={(e) => {
+                                    e.preventDefault();
+                                    signOut();
+                                }} 
+                                className = "cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black"> 
+                                    Logout
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    }
                 </div>
                 <div onClick = {handleNav} className="sm:hidden cursor-pointer">
                     <AiOutlineMenu size={25}/>
@@ -105,7 +95,6 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
-            {/* <VscAccount className="text-blue-500 text-4xl hover:text-green-200 transition duration-300"/> */}
         </nav>
     )
 }
