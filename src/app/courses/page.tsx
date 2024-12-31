@@ -1,11 +1,13 @@
 import { Suspense } from "react";
 import courses from "./courses.json"
 import { auth, signIn } from "@/../auth"
+import { Session } from "@auth/core/types";
+
 
 type CourseCardProps = {
     name: string,
     description: string,
-    session: any
+    session: Session | null
 }
 
 function CourseCard({ name, description, session }: CourseCardProps) { 
