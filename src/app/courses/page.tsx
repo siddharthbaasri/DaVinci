@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import courses from "./courses.json"
 import { auth, signIn } from "@/../auth"
 import { Session } from "@auth/core/types";
 import { sql } from '@vercel/postgres';
