@@ -25,16 +25,16 @@ const Navbar = () => {
                         <Image src = {logo} alt = "logo" width="55" height="12" className = "border-2" priority/>
                     </Link>
                     <ul className="hidden sm:flex items-center">
-                        <Link href = "/courses" className="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400">
+                        <Link href = "/courses" className="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-black dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400">
                             <li className="ml-5 uppercase hover:border-b text-l">Courses</li>
                         </Link>
-                        <Link href = "" className="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400">
+                        <Link href = "" className="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-black dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400">
                             <li className="ml-5 uppercase hover:border-b text-l">Forums</li>
                         </Link>
-                        <Link href = "" className="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400">
+                        <Link href = "" className="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-black dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400">
                             <li className="ml-5 uppercase hover:border-b text-l">Volunteer</li>
                         </Link>
-                        <Link href = "" className="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400">
+                        <Link href = "" className="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-black dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400">
                             <li className="ml-5 uppercase hover:border-b text-l">About</li>
                         </Link>
                     </ul>
@@ -48,19 +48,19 @@ const Navbar = () => {
                     :
                     <div className="flex items-center relative group transition-all px-2 py-3">
                         <div className = "px-5">
-                            <p>Hello {session?.user?.name}</p>
+                            <p className = "dark:text-gray-500">Hello {session?.user?.name}</p>
                         </div>
                         <div>
-                            <VscAccount className="text-black-500 text-4xl hover:text-green-200 transition duration-300"/>
+                            <VscAccount className="text-black text-4xl hover:text-green-200 transition duration-300 dark:hover:text-gray-400 dark:text-black"/>
                             <div className="absolute right-2 top-15 w-auto hidden flex-col gap-1 rounded-l bg-white py-3 shadow-md transition-all group-hover:flex">
-                                <Link href="" className = "cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black"> 
+                                <Link href="" className = "cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black dark:hover:text-gray-400 dark:text-black"> 
                                     Profile
                                 </Link>
                                 <Link href="" onClick={(e) => {
                                     e.preventDefault();
                                     signOut();
                                 }} 
-                                className = "cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black"> 
+                                className = "cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black dark:hover:text-gray-400 dark:text-black"> 
                                     Logout
                                 </Link>
                             </div>

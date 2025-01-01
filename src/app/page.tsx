@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <div className="relative flex items-center justify-center py-16 bg-gray-50 sm:py-24 lg:py-32 mb-16">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 dark:from-neutral-700 dark:to-neutral-800"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 dark:from-teal-700 dark:to-cyan-800"></div>
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="mx-auto text-lg text-center max-w-4xl">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
