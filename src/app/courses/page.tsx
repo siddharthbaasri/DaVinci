@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { auth, signIn } from "@/../auth"
 import { Session } from "@auth/core/types";
-import { sql } from '@vercel/postgres';
+import { getCourses } from "@/app/lib/db"
 
 
 type CourseCardProps = {
@@ -9,13 +9,6 @@ type CourseCardProps = {
     description: string,
     session: Session | null
 }
-
-type Course = {
-    id: number;
-    title: string;
-    description: string;
-    subject: string;
-};
 
 function CourseCard({ name, description, session }: CourseCardProps) { 
     const formAction = async () => {
@@ -46,16 +39,6 @@ function CourseCard({ name, description, session }: CourseCardProps) {
 
 export default async function Courses () {
     const session = await auth();
-
-     async function getCourses() {
-        try {
-            const data = await sql<Course>`SELECT * FROM courses`;
-            return data.rows;
-        } catch (error) {
-            console.error('Database Error:', error);
-            throw new Error('Failed to fetch course data.');
-        }
-    }
 
     const courseData = await getCourses();
 
