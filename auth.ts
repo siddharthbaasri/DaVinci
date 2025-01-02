@@ -1,9 +1,10 @@
 import NextAuth from "next-auth"
 import Google from "next-auth/providers/google"
+import Github from "next-auth/providers/github"
 import { getUser, addUser } from "@/app/lib/db"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Google,],
+  providers: [Google, Github],
   callbacks: {
     authorized: async ({ auth }) => {
       // Logged in users are authenticated, otherwise redirect to login page
